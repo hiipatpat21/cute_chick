@@ -74,6 +74,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_07gd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753219071]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y827j")
 animation = &"idle"
 
