@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://byhdre7ap5vs5"]
 
+[ext_resource type="Script" uid="uid://dp27jpnuxw47q" path="res://scripts/chick.gd" id="1_07gd1"]
 [ext_resource type="Texture2D" uid="uid://cd2gl1ukmacqn" path="res://assets/sprites/chick-Sheet.png" id="1_y827j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh3vh"]
+atlas = ExtResource("1_y827j")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07gd1"]
 atlas = ExtResource("1_y827j")
@@ -28,9 +33,12 @@ region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y827j"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh3vh")
+}],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -61,11 +69,13 @@ animations = [{
 size = Vector2(25, 27)
 
 [node name="Chick" type="CharacterBody2D" unique_id=1898941720]
+position = Vector2(134, 107)
+scale = Vector2(3, 3)
+script = ExtResource("1_07gd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753219071]
 sprite_frames = SubResource("SpriteFrames_y827j")
-animation = &"walk"
-frame_progress = 0.73426145
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098440284]
 position = Vector2(-0.5, 1.5)
