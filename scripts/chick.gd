@@ -1,15 +1,19 @@
 extends CharacterBody2D
 
 @export var speed: float = 200
+@export var gravity: float = 980
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
 	var direction = Input.get_axis("move_left", "move_right")
 	print(direction)
 	
 	velocity.x = direction * speed
-	velocity.y = 0
 	
 	move_and_slide()
 	
